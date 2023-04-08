@@ -12,5 +12,5 @@ interface WordDao {
     suspend fun insert(word: Word)
 
     @Query("DELETE FROM word_table")
-    suspend fun delete(word: Word)
+    suspend fun deleteAll()
 }

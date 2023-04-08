@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Word::class], version = 1, exportSchema = false)
 abstract class WordRoomDatabase: RoomDatabase() {
-    abstract fun wordDao: WordDao
+    abstract fun wordDao(): WordDao
 
     companion object {
         // データベースのインスタンスが複数同時に開かれるのを防ぐために、
@@ -16,8 +16,8 @@ abstract class WordRoomDatabase: RoomDatabase() {
         // 以下のinstance定義はcompanion objectブロック外にあっても問題ないのか？
         private var INSTANCE: WordRoomDatabase? = null
 
-        // getInstance()はcompanion Objectブロック内にあるので、シングルトンになるのか？
-        fun getInstance(context: Context): WordRoomDatabase {
+        // getDatabase()はcompanion Objectブロック内にあるので、シングルトンになるのか？
+        fun getDatabase(context: Context): WordRoomDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
