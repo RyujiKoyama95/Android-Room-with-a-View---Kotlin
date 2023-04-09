@@ -5,7 +5,7 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 class WordViewModel(private val repository: WordRepository): ViewModel() {
-    private val words: LiveData<List<Word>> = repository.allWords.asLiveData()
+    val allWords: LiveData<List<Word>> = repository.allWords.asLiveData()
 
     fun insert(word: Word) {
         viewModelScope.launch {
