@@ -14,6 +14,7 @@ abstract class WordRoomDatabase: RoomDatabase() {
         // シングルトンのWordRoomDatabaseを定義
 
         // 以下のinstance定義はcompanion objectブロック外にあっても問題ないのか？
+        // →companion objectブロック外で定義すると、このブロック内で参照できないのでダメ。
         private var INSTANCE: WordRoomDatabase? = null
 
         // getDatabase()はcompanion Objectブロック内にあるので、シングルトンになるのか？
