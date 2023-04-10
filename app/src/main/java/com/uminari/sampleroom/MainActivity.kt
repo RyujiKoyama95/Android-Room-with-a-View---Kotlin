@@ -50,6 +50,9 @@ class MainActivity : AppCompatActivity() {
             }
         } else {
             // contextがよくわかったいない。applicationContextとthisは同じか？
+            // →applicationContextはappのcontextなので、Activityのライフサイクルに依存しない。
+            // シングルトンとしてappが死ぬまでは破棄されたり変更されたりしない。
+            // →thisはActivityのcontextなので、Activity依存なので、破棄されればcontextも破棄される。
             Toast.makeText(applicationContext, R.string.empty_edit_text, Toast.LENGTH_LONG).show()
         }
     }
