@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SampleRoom</string>
+    <string name="empty_edit_text">Empty edit text</string>
 </resources>
