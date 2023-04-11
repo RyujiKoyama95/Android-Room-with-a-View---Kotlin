@@ -13,6 +13,8 @@ class WordRepository(private val wordDao: WordDao) {
 
     // 以下のアノテーションは必要ない？
     @Suppress("RedundantSuspendModifier")
+    // メソッドの実行されるスレッドを明示
+    // WorkerThreadでUI処理を行おうとするとエラーとなる。
     @WorkerThread
     suspend fun insert(word: Word) {
         wordDao.insert(word)
