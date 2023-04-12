@@ -12,6 +12,7 @@ class WordRepository(private val wordDao: WordDao) {
     val allWords: Flow<List<Word>> = wordDao.getAlphabetizedWords()
 
     // 以下のアノテーションは必要ない？
+    // 何の警告を消すためのアノテーションなのか分からん
     @Suppress("RedundantSuspendModifier")
     // メソッドの実行されるスレッドを明示
     // WorkerThreadでUI処理を行おうとするとエラーとなる。
